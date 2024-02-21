@@ -11,6 +11,11 @@ closeBtn.addEventListener("click", () => {
 searchBtn.addEventListener("click", () => {
     sidebar.classList.toggle("open");
     menuBtnChange();
+    
+    // Call displayRepos when the sidebar is opened
+    if (sidebar.classList.contains("open")) {
+        displayRepos();
+    }
 });
 
 // Fetch GitHub repositories and display them
@@ -35,7 +40,7 @@ function displayRepos() {
         .catch(error => console.error('Error fetching repositories:', error));
 }
 
-// Call the displayRepos function to fetch and display repositories
+// Call the displayRepos function initially to fetch and display repositories
 displayRepos();
 
 // Function to change sidebar button
